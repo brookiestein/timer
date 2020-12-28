@@ -26,7 +26,7 @@ print_message(int hours, int minutes, int seconds)
 }
 
 int
-timer(int hours, int minutes, int seconds)
+timer(int hours, int minutes, int seconds, char *body)
 {
         while (1) {
                 while (seconds > 59) {
@@ -61,7 +61,7 @@ timer(int hours, int minutes, int seconds)
                 }
         }
 
-        char *err = notify();
+        char *err = notify(body);
 
         if (strncmp(err, "ok", 2)) {
                 fprintf(stderr, "%s", err);

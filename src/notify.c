@@ -1,11 +1,13 @@
 #include "notify.h"
 
 char *
-notify(void)
+notify(char *body)
 {
         char summary[]  = "Timer";
-        char body[]     = "The time has finished.";
         char *err = NULL;
+
+        if (!body)
+                body = "The time has finished.";
 
         if (!notify_init(summary)) {
                 err = "An error occurred while initialising libnotify.";

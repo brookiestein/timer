@@ -17,18 +17,21 @@ static const char cmd_info[]            = "Command to be executed after timer ha
 static const char hours_info[]          = "How many hours you want me to run.";
 static const char minutes_info[]        = "How many minutes you want me to run.";
 static const char seconds_info[]        = "How many seconds you want me to run.";
+static const char message_info[]        = "Custom message to be shown after timer\n\
+had finished. (Default: 'The time has finished.')";
 
 static struct
 argp_option options[] = {
         { "command",    'c',    "command",      OPTION_ARG_OPTIONAL,    cmd_info,       0 },
         { "hours",      'h',    "hours",        OPTION_ARG_OPTIONAL,    hours_info,     0 },
         { "minutes",    'm',    "minutes",      OPTION_ARG_OPTIONAL,    minutes_info,   0 },
+        { "message",    'M',    "message",      OPTION_ARG_OPTIONAL,    message_info,   0 },
         { "seconds",    's',    "seconds",      OPTION_ARG_OPTIONAL,    seconds_info,   0 },
         { 0 }
 };
 
 struct
 arguments {
-        char *cmd;
+        char *cmd, *body;
         int hours, minutes, seconds;
 };

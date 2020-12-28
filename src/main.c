@@ -2,7 +2,7 @@
 
 static error_t parse_opt(int key, char *arg, struct argp_state *state);
 
-const char *argp_program_version        = "Timer v0.0";
+const char *argp_program_version        = "Timer v0.1";
 
 static const struct argp argp = { options, parse_opt, 0, doc, 0, 0, 0 };
 
@@ -37,6 +37,9 @@ parse_opt(int key, char *arg, struct argp_state *state)
                         die("The entered minutes are not valid.");
                 }
                 break;
+        case 'M':
+                args->body = arg;
+                break;
         case 's':
                 if (arg && isdigit(arg[0])) {
                         args->seconds = atoi(arg);
@@ -56,6 +59,7 @@ main(int argc, char *argv[])
 {
         struct arguments args;
         args.cmd        = NULL;
+        args.body       = NULL;
         args.hours      = 0;
         args.minutes    = 0;
         args.seconds    = 0;
@@ -65,7 +69,7 @@ main(int argc, char *argv[])
         if (args.hours == 0 && args.minutes == 0 && args.seconds == 0)
                 die("You've not specified neither hours, minutes nor seconds.");
 
-        timer(args.hours, args.minutes, args.seconds);
+        timer(args.hours, args.minutes, args.seconds, args.body);
 
         if (args.cmd) {
                 char RED[]      = "\e[1;32m";

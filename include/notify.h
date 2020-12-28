@@ -10,4 +10,4 @@
 #define NOTIFY_H 1
 #endif
 
-char *notify(void);
+char *notify(char *body);

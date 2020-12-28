@@ -22,4 +22,4 @@
 #define TIMER_H 1
 #endif
 
-int timer(int hours, int minutes, int seconds);
+int timer(int hours, int minutes, int seconds, char *body);
