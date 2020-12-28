@@ -4,6 +4,7 @@ CFLAGS	+= $(shell pkg-config --cflags --libs gtk+-3.0)
 CP	:= cp -fv
 MV	:= mv -fv
 RM	:= rm -fv
+PREFIX	:= /usr/local/bin
 TARGET	:= timer
 SRC_DIR	:= src
 SRC	:= ${SRC_DIR}/main.c ${SRC_DIR}/timer.c ${SRC_DIR}/notify.c
@@ -15,3 +16,11 @@ all : ${OBJ}
 .PHONY : clean
 clean :
 	${RM} ${OBJ}
+
+.PHONY : install
+install :
+	${CP} ${TARGET} ${PREFIX}
+
+.PHONY : uninstall
+uninstall :
+	${RM} ${PREFIX}/${TARGET}
