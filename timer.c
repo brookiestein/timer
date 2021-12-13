@@ -51,7 +51,7 @@ timer(int hours, int minutes, int seconds, char *body)
 
                 print_message(hours, minutes, seconds);
                 setbuf(stdout, NULL);
-                printf("\r%i:%i:%i", hours, minutes, seconds);
+                printf("\r%i:%i:%i ", hours, minutes, seconds);
                 seconds--;
                 sleep(1);
 

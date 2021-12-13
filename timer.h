@@ -18,8 +18,6 @@
 #include "notify.h"
 #endif
 
-#ifndef TIMER_H
 #define TIMER_H 1
-#endif
 
 int timer(int hours, int minutes, int seconds, char *body);

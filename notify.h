@@ -6,8 +6,6 @@
 #include <libnotify/notification.h>
 #endif
 
-#ifndef NOTIFY_H
 #define NOTIFY_H 1
-#endif
 
 char *notify(char *body);
